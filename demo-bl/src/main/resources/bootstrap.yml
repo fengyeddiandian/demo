@@ -1,0 +1,25 @@
+server:
+    port: 8081
+    shutdown: graceful
+
+spring:
+    application:
+        name: demo
+    profiles:
+        active: db
+    lifecycle:
+        timeout-per-shutdown-phase: 20s
+    cloud:
+        nacos:
+            discovery:
+                server-addr: http://127.0.0.1:8848
+                group: TOMP_GROUP
+                namespace: demo
+            config:
+                server-addr: http://127.0.0.1:8848
+                file-extension: yaml
+                group: TOMP_GROUP
+                prefix: application
+                namespace: demo
+logging:
+    config: classpath:log4j2.xml

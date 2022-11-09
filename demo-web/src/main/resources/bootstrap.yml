@@ -1,0 +1,43 @@
+server:
+    port: 8082
+    shutdown: graceful
+
+spring:
+    application:
+        name: demo-gateway
+    profiles:
+        active: db
+    lifecycle:
+        timeout-per-shutdown-phase: 20s
+    cloud:
+        nacos:
+            discovery:
+                server-addr: http://127.0.0.1:8848
+                group: TOMP_GROUP
+                namespace: demo
+            config:
+                server-addr: http://127.0.0.1:8848
+                file-extension: yaml
+                group: TOMP_GROUP
+                prefix: application
+                namespace: demo
+        gateway:
+            discovery:
+                locator:
+                    enabled: true  # 启用服务发现
+                    lower-case-service-id: true
+            routes:
+                -   id: poem-system
+                    uri: lb://demo
+                    predicates:
+                        - Path=/api-demo/**
+                    filters:
+                      - StripPrefix=1
+                -   id: poem-gateway
+                    uri: http://127.0.0.1:8081
+                    predicates:
+                        - Path=/gateway/**
+                    filters:
+                        - StripPrefix=1
+logging:
+    config: classpath:log4j2.xml
