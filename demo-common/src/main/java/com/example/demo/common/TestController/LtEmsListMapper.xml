@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.common.TestController.LtEmsListMapper">
+
+
+    <select id="selectProvince" resultType="String">
+
+        SELECT DISTINCT(PROVINCE) FROM LT_EMS_LIST WHERE 1=1
+        <if test="province != null and province.trim() != ''">
+            AND PROVINCE LIKE CONCAT(CONCAT('%',#{province}),'%')
+        </if>
+
+    </select>
+
+    <select id="selectCity" resultType="String">
+
+        SELECT DISTINCT CITY FROM LT_EMS_LIST WHERE PROVINCE = #{province}
+        <if test="city != null and city.trim() != ''">
+            AND CITY LIKE CONCAT(CONCAT('%',#{city}),'%')
+        </if>
+
+
+    </select>
+
+    <select id="selectFactory" resultType="String">
+        SELECT DISTINCT(FACTORY) FROM LT_EMS_LIST WHERE 1=1
+        <if test="province != null and province.trim() != ''">
+           AND PROVINCE = #{province}
+        </if>
+        <if test="city != null and city.trim() != ''">
+            AND CITY = #{city}
+        </if>
+        <if test="factory != null and factory.trim() != ''">
+            AND FACTORY LIKE CONCAT(CONCAT('%',#{factory}),'%')
+        </if>
+    </select>
+
+    <select id="selectEmsType" resultType="String">
+        SELECT DISTINCT(EMSTYPE) FROM LT_EMS_LIST WHERE 1=1
+        <if test="emsType != null and emsType.trim() != ''">
+            AND EMSTYPE LIKE CONCAT(CONCAT('%',#{emsType}),'%')
+        </if>
+
+    </select>
+
+    <select id="selectEmsName" resultType="String">
+        SELECT EMSNAME FROM LT_EMS_LIST WHERE 1=1
+        <if test="province != null and province.trim() != ''">
+            AND PROVINCE = #{province}
+        </if>
+        <if test="city != null and city.trim() != ''">
+            AND CITY = #{city}
+        </if>
+        <if test="emsName != null and emsName.trim() != ''">
+            AND EMSNAME LIKE CONCAT(CONCAT('%',#{emsName}),'%')
+        </if>
+    </select>
+
+    <select id="selectCollectProvince" resultType="Map">
+        SELECT DISTINCT
+        ( PROVINCE ) PROVINCE,
+        to_char( CREATEDATE, 'yyyy-mm-dd' ) CREATEDATE
+        FROM
+        irm_iv_Statistical
+        WHERE
+        CREATEDATE >= trunc(sysdate) and CREATEDATE &lt; trunc(sysdate)+1
+    </select>
+
+    <delete id="deleteCompleteProvince">
+        delete irm_iv_Statistical where province  = #{province}
+    </delete>
+</mapper>
