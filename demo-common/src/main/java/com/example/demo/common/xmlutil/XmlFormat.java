@@ -52,7 +52,7 @@ public class XmlFormat {
     public static void main(String[] args) throws Exception {
 
         List<String> fileName = new ArrayList<>();
-        String path ="F:\\新建文件夹";
+        String path ="D:\\documents\\tencent files\\华为\\新建文件夹";
         GetFilesNames.getFileName(path,fileName);
         if (fileName.size()>0){
             String s = fileName.get(0);
