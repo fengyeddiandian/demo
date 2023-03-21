@@ -118,7 +118,7 @@ public class Analyser {
                         List<String> collect =objectList2.stream().map(a->String.valueOf(a.get(0))).collect(Collectors.toList());
                         List<String> collect1 = collect.stream().filter(a -> !setKey.add(a)).collect(Collectors.toList());
                         collect1.forEach(System.out::println);
-                        collect.forEach(System.out::println);
+//                        collect.forEach(System.out::println);
 
                         int size1 = collect.size();
                         total += size1;
@@ -260,7 +260,7 @@ public class Analyser {
     }
 
     public static void main(String[] args) {
-    String path = "F:\\新建文件夹"; // 路径
+    String path = "D:\\Documents\\Tencent Files\\北京移动OTN资源V2.2.0版本样例\\北京移动OTN资源V2.2.0版本样例\\CM-OTN-NEL-1A-V2.2.0-20230228120000.xml"; // 路径
         List<String> fileNameList = new ArrayList<String>();
         GetFilesNames.getFileName(path, fileNameList);
         fileNameList.forEach(System.out::println);
