@@ -14,8 +14,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.example","com.zznode"})
-@MapperScan(basePackages ={"com.example","com.zznode"})
+@ComponentScan(basePackages = {"com.example.demo"})
+@MapperScan(basePackages ={"com.example.demo"})
 @Slf4j
 @EnableDiscoveryClient
 public class DemoBlApplication {
