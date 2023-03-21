@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.common.generator.mapper.TSncAggregateMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.common.generator.domain.TSncAggregate">
+            <id property="id" column="ID" jdbcType="VARCHAR"/>
+            <result property="sncId" column="SNC_ID" jdbcType="VARCHAR"/>
+            <result property="circuitName" column="CIRCUIT_NAME" jdbcType="VARCHAR"/>
+            <result property="city" column="CITY" jdbcType="VARCHAR"/>
+            <result property="aMacPortName" column="A_MAC_PORT_NAME" jdbcType="VARCHAR"/>
+            <result property="aMacPortUserlabel" column="A_MAC_PORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="aMacPortId" column="A_MAC_PORT_ID" jdbcType="VARCHAR"/>
+            <result property="aVctrunkPortName" column="A_VCTRUNK_PORT_NAME" jdbcType="VARCHAR"/>
+            <result property="aVctrunkPortUserlabel" column="A_VCTRUNK_PORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="aVctrunkPortId" column="A_VCTRUNK_PORT_ID" jdbcType="VARCHAR"/>
+            <result property="aliasname" column="ALIASNAME" jdbcType="VARCHAR"/>
+            <result property="sncAportName" column="SNC_APORT_NAME" jdbcType="VARCHAR"/>
+            <result property="sncAportUserlabel" column="SNC_APORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="sncAportId" column="SNC_APORT_ID" jdbcType="VARCHAR"/>
+            <result property="sncAtimeName" column="SNC_ATIME_NAME" jdbcType="VARCHAR"/>
+            <result property="sncZportName" column="SNC_ZPORT_NAME" jdbcType="VARCHAR"/>
+            <result property="sncZportUserlabel" column="SNC_ZPORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="sncZportId" column="SNC_ZPORT_ID" jdbcType="VARCHAR"/>
+            <result property="sncZtimeName" column="SNC_ZTIME_NAME" jdbcType="VARCHAR"/>
+            <result property="zMacPortName" column="Z_MAC_PORT_NAME" jdbcType="VARCHAR"/>
+            <result property="zMacPortUserlabel" column="Z_MAC_PORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="zMacPortId" column="Z_MAC_PORT_ID" jdbcType="VARCHAR"/>
+            <result property="zVctrunkPortName" column="Z_VCTRUNK_PORT_NAME" jdbcType="VARCHAR"/>
+            <result property="zVctrunkPortUserlabel" column="Z_VCTRUNK_PORT_USERLABEL" jdbcType="VARCHAR"/>
+            <result property="zVctrunkPortId" column="Z_VCTRUNK_PORT_ID" jdbcType="VARCHAR"/>
+            <result property="createDate" column="CREATE_DATE" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,SNC_ID,CIRCUIT_NAME,
+        CITY,A_MAC_PORT_NAME,A_MAC_PORT_USERLABEL,
+        A_MAC_PORT_ID,A_VCTRUNK_PORT_NAME,A_VCTRUNK_PORT_USERLABEL,
+        A_VCTRUNK_PORT_ID,ALIASNAME,SNC_APORT_NAME,
+        SNC_APORT_USERLABEL,SNC_APORT_ID,SNC_ATIME_NAME,
+        SNC_ZPORT_NAME,SNC_ZPORT_USERLABEL,SNC_ZPORT_ID,
+        SNC_ZTIME_NAME,Z_MAC_PORT_NAME,Z_MAC_PORT_USERLABEL,
+        Z_MAC_PORT_ID,Z_VCTRUNK_PORT_NAME,Z_VCTRUNK_PORT_USERLABEL,
+        Z_VCTRUNK_PORT_ID,CREATE_DATE
+    </sql>
+</mapper>
